@@ -13,6 +13,8 @@ Malory is an advanced AI-powered deterrent system designed to prevent unwanted f
 ## Technology Stack
 ### Machine Learning
 - **TensorFlow / PyTorch:** Used to train deep learning models for audio classification and object detection.
+- **YAMNet:** Pre-trained deep learning model for audio event classification, used for detecting meows and scratching sounds.
+- **MobileNetV2:** Lightweight convolutional neural network (CNN) used for efficient computer vision tasks.
 - **Librosa:** Extracts features from audio data for sound classification.
 - **OpenCV:** Processes images for real-time detection of standing behavior.
 
@@ -30,12 +32,12 @@ Malory is an advanced AI-powered deterrent system designed to prevent unwanted f
 1. **Audio Detection Pipeline:**
    - Records incoming audio using a USB microphone.
    - Extracts MFCC (Mel-frequency cepstral coefficients) features from the audio signal.
-   - Classifies sounds as either background noise, meowing, or scratching.
+   - Uses **YAMNet** for classifying sounds as either background noise, meowing, or scratching.
    - Triggers deterrent response if meowing or scratching is detected.
 
 2. **Computer Vision Pipeline:**
    - Captures real-time video feed using the Raspberry Pi camera module.
-   - Runs a Convolutional Neural Network (CNN) to classify standing vs. non-standing behavior.
+   - Runs a Convolutional Neural Network (CNN) based on **MobileNetV2** to classify standing vs. non-standing behavior.
    - Triggers deterrent response if standing behavior is detected.
 
 3. **Deterrent Response System:**
@@ -44,8 +46,8 @@ Malory is an advanced AI-powered deterrent system designed to prevent unwanted f
 
 ## Model Training
 The AI models were trained using a combination of real-world and publicly available datasets. 
-- **Audio Model:** Trained on labeled audio samples of cat meows, scratching sounds, and background noise.
-- **Vision Model:** Trained using images labeled as "Standing" and "Not Standing" to distinguish relevant behavior.
+- **Audio Model:** Trained on labeled audio samples of cat meows, scratching sounds, and background noise using **YAMNet**.
+- **Vision Model:** Trained using images labeled as "Standing" and "Not Standing" to distinguish relevant behavior using **MobileNetV2**.
 - **Optimization:** Models were converted to TensorFlow Lite for efficient edge inference on the Raspberry Pi.
 
 ## Hardware Requirements
@@ -61,23 +63,6 @@ The AI models were trained using a combination of real-world and publicly availa
 - **Raspberry Pi OS (Latest Version)** installed on the Raspberry Pi.
 - Python 3.10 or later.
 - Required dependencies installed:
-  ```sh
-  pip install numpy librosa sounddevice opencv-python tensorflow tflite-runtime
-  ```
-
-### Running the System
-1. **Start the Audio Detection System:**
-   ```sh
-   python audio_detector.py
-   ```
-2. **Start the Vision Detection System:**
-   ```sh
-   python vision_detector.py
-   ```
-3. **Deploy on Raspberry Pi:**
-   - Transfer trained models (`cat_audio_model.tflite`, `cat_vision_model.tflite`) to the Raspberry Pi.
-   - Run the main deterrent system script:
-     ```sh
-     python malory_main.py
-     ```
-
+  
+```sh
+pip install numpy librosa sounddevice opencv-python tensorflow tflite-runtime
