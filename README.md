@@ -50,13 +50,19 @@ The AI models were trained using a combination of real-world and publicly availa
 - **Vision Model:** Trained using images labeled as "Standing" and "Not Standing" to distinguish relevant behavior using **MobileNetV2**.
 - **Optimization:** Models were converted to TensorFlow Lite for efficient edge inference on the Raspberry Pi.
 
-## Hardware Requirements
+## **Hardware Requirements**
 | Component               | Purpose                                      |
 |-------------------------|----------------------------------------------|
-| Raspberry Pi 4 Model B | Main processing unit                         |
-| Raspberry Pi Camera    | Captures live video for detection            |
-| USB Microphone        | Captures audio for meow and scratch detection |
-| Speaker               | Plays deterrent sounds                        |
+| **Raspberry Pi 4 Model B** | Main processing unit                         |
+| **Raspberry Pi Camera Module** | Captures live video for detection            |
+| **USB Microphone** | Captures audio for meow and scratch detection |
+| **Speaker** | Plays deterrent sounds                        |
+| **Power Supply (5V 3A USB-C Adapter)** | Powers the Raspberry Pi |
+| **Micro SD Card (32GB or higher)** | Stores OS, models, and scripts |
+| **SD Card Adapter** | Allows flashing the OS onto the micro SD card |
+| **Camera Module** | Captures images for real-time detection |
+
+Would you like me to format the full **Installation & Deployment** guide with setup instructions for the **hardware and software**? 🚀
 
 ## Installation & Deployment
 ### Prerequisites
